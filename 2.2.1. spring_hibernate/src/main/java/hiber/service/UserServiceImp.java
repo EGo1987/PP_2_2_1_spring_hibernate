@@ -16,6 +16,12 @@ public class UserServiceImp implements UserService {
 
    @Transactional
    @Override
+   public Object getUserFromCar(String model, int series){
+      return userDao.getUserFromCar(model, series);
+   }
+
+   @Transactional
+   @Override
    public void add(User user) {
       userDao.add(user);
    }
@@ -25,5 +31,4 @@ public class UserServiceImp implements UserService {
    public List<User> listUsers() {
       return userDao.listUsers();
    }
-
 }
