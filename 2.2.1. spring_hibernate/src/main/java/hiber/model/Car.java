@@ -3,23 +3,16 @@ package hiber.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "car")
 public class Car {
-    @OneToOne (mappedBy = "car")
-    private User user;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(name = "model")
     private String model;
+    @Column(name = "series")
     private int series;
 
     public Car(){

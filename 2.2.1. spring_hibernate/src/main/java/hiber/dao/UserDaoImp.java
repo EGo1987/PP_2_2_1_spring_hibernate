@@ -22,17 +22,11 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public User getUserFromCar(String model, Integer series) {
-        try{
-           Query query = sessionFactory.getCurrentSession()
+        Query query = sessionFactory.getCurrentSession()
                    .createQuery("from User where car.model=:model and car.series=:series");
         query.setParameter("model", model);
         query.setParameter("series", series);
         return (User) query.getSingleResult();
-        } catch (Exception e){
-           System.out.println("Возникла ошибка при выполнении поиска USER-а по CAR!");
-           e.printStackTrace();
-           return null;
-        }
     }
 
     @Override
